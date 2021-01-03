@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png?">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Queeze</title>
+  </head>
+  <style>
+    @font-face{
+      font-family: "DiabloLight";
+      src: url("DiabloLight.ttf") format("truetype");
+    }
+    div,h1{
+      font-family: DiabloLight;
+    }
+	h2{
+	  font-family: Arial;
+	}
+	
+	#countdown {
+	  position: relative;
+	  height: 40px;
+	  width: 40px;
+	  text-align: center;
+	}
+
+	#countdown-number {
+	  color: black;
+	  display: inline-block;
+	  line-height: 40px;
+	}
+
+	svg {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  width: 40px;
+	  height: 40px;
+	  transform: rotateY(-180deg) rotateZ(-90deg);
+	}
+
+	svg circle {
+	  stroke-dasharray: 113px;
+	  stroke-dashoffset: 0px;
+	  stroke-linecap: round;
+	  stroke-width: 2px;
+	  stroke: red;
+	  fill: none;
+	  animation: countdown 25s linear infinite forwards;
+	}
+	
+	.question {
+	  -webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Old versions of Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+									  supported by Chrome, Edge, Opera and Firefox */
+	}
+
+  </style>
+  <body style="background-color:#ffefcf;color:#D49E43">
+	<script>
+		alert("Kviz se sastoji od 100 pitanja. Prikaz pitanja vremenski je ograničen na 25 sekundi.\nPrikaz prethodnih pitanja nije moguć.\nOdgovore zapišite gdje god vam je najzgodnije (nije potrebno slati obrazac).\nRevidiranje i izmjene napisanih odgovora dozvoljene su dok god ne istekne vremensko ograničenje posljednjeg pitanja.\nNakon odgovaranja obavijestiti organizatora.\nKada svi timovi završe odgovaranje, rješenja će biti objavljena na istoj stranici (i vi o tome obaviješteni).\nPotrebno je izvršiti samoprovjeru i organizatoru poslati ime tima i broj točno odgovorenih pitanja\nSretno!");
+	</script>
+	<div class="mt-5 col-12">
+		<h1 class="text-center" style="color:black;" id="index">+ + +</h1>
+	</div>
+	<img src="https://mvinfo.hr/_mvshop/public/data/image/1/5882.jpg" class="img center" style="width:128px;position:fixed;bottom:0px;right:0px;"/>
+
+	<div class="col-12"><h4 style="color:#D49E43;" class="text-center">_______________</h4></div>
+	<div class="mt-4 col-12"><h2 id="questionText" style="color:black;" class="text-center question">NEDJELJA, 3. SIJEČNJA U 19:00.</h2></div>
+	<div class="col-12"><h4 style="color:#D49E43;" class="text-center">_______________</h4></div>
+	<div id="countdown" class="mt-5 mx-auto">
+	  <div id="countdown-number"></div>
+	  <svg>
+		<circle r="18" cx="20" cy="20"></circle>
+	  </svg>
+	</div>
+    <script>
+	var countdownNumberEl = document.getElementById('countdown-number');
+	var countdown = 25;
+	var stop = false;
+	countdownNumberEl.textContent = countdown;
+
+	setInterval(function() {
+		if(stop==false)
+			countdown = --countdown
+		countdownNumberEl.textContent = countdown;
+	}, 1000);
+	
+	var timeout;
+	var i=0;
+	var pitanja = ["22171.Rsyjwtsčcs šcgds Hsnds Esjcgnus bwvfs bw gv fsbhgrfslabaz-cscnaz šcgds",
+"22172.M cgbgb kw kdacsjkcgb lwzfaua tgbw m hjszm eabwšsbm k jsklghdbwfae ngkcge",
+"22173.M čabgb mkhbwšfaua „Zahk vgf'l daw“,gvfgkfg cmcgna fw dsžm",
+"22174.Kaetgd cgbwy bw sjshkcgy yjsvs Kdsngdmc hgtbwvw ksrvsf gv vangnkcaz jmcm cgbw vjžw esčwnw",
+"22175.M cgbwe kw Lsjsflafgnm xadem hgbsndbmbw gknwlfaus Kzgksffs Vjwqxmk",
+"22176.Cgbs bw žanglafbs kaetgd eajs fs Hauskkgnae sflajslfae hdscslaes",
+"22177.Cscg kw rgnw nbwjfs hgegćfaus hjafuwrw-jslfauw Pwfw",
+"22178.Cgbs kw stwuwvs ksklgba gv 6 akhmhčwfaz lgčscs cgbw kw egym cgetafajsla fs tjgbfw fsčafw",
+"22179.Vjmys nwdacs fsxlfs cjars mrjgcgnsfs bw jwngdmuabge m cgbgb vjžsna",
+"22180.M cgdacg bw tjscgns mcmhfg klmhads kdsnfs Esjadqf Egfjgw",
+"22181.M vgdafa cgbw kw jabwcw a fbwrafaz hjalgcs fsdsrw Lwlgnkcg,Kcghkcg a Nwdwšcg hgdbw",
+"22182.M cgbgb bw sldwlkcgb vakuahdafa emšca jwcgjv 18.22 e,s žwfkca 15.5 e",
+"22183.Šlg,m arjwua,fstabseg kmhjmžfacm scg ys hjwnsjaeg k vjmyge gkgtge",
+"22184.Lcg ada šlg dmhs hg vanaraba m hgrfslgb mrjwčaua g hjačsfbm twkeakdaus",
+"22185.Cscg kw rnsg gvsfa bshsfkca hsk g čabwe bw žangla kfaedbwf tagyjsxkca xade",
+"22186.Cgšsjcsšca cdmt „Gdqehascgk“ ar Hajwbs vgesćw mlsceauw ayjs m „Vngjsfa eajs a“-čwys",
+"22187.Cscg knajsč cgbwy kw afkljmewfls Hzad Ugddafk hjavjmžag yjmha „Ywfwkak“",
+"22188.Cgbw bw ebwklg fs glgcm Tjsčm hgrfslg hg hjgarngvfba jatdbaz cgfrwjna",
+"22189.Cgbae bw vgeafsflfae klazge ar vgts tsjgcs Ymfvmdać hbwnsg g „lsšlgb dbmvkcgb gzgdgkla“",
+"22190.Hjgdsr cgbwy bw cgewls 1301. egysg afkhajajsla Yaglls rs twldwzwekcm rnabwrvm jwhslaum",
+"22191.M cgbw ygvašfbw vgts ksrjabwnsbm tgtauw žmlw aewdw cgbaes kw zjsfw fwcw hlauw",
+"22192.Lcg bw fsbtgdba kljabwdsu m hgnabwkla šnwvkcw fgygewlfw jwhjwrwflsuabw",
+"22193.Cgbs bw mklsfgns Rsyjwtsčcgy knwmčadašls gkfgnsfs csg Scsvweabs rs csrsdašfm mebwlfgkl",
+"22194.Cgdacg kwklsjs aes xaclanfa čafgnfac Sfvjwb Hjgrgjgn",
+"22195.Cscsn bw cjnfa ldsc m zahwjlwfračsjs",
+"22196.Lcg zalge „Tsfsfs tgsl kgfy“ a kcdsvtses hgjabwcdge k Csjats hgklažw knbwlkca mkhbwz",
+"22197.M cgbgb km aklgčfgfbwesčcgb ksnwrfgb rwedba yjsvgna Dwahray a Vjwkvwf",
+"22198.Cscg kw rgnm kaksnua cghalsja k 2 ydsnfs hshcs fs knscgb fgra",
+"22199.Cgba bw jwvslwdb jgđwf m vsfsšfbgb Kdgnsčcgb jwžajsg „Aklbwjansčw vmzgns“",
+"22200.Ksfcl Hwlwjktmjy bw 1703. gkfgnsg Hwlsj Nwdaca hgdgžanša lwewdbw-cgbgb lnjđsna",
+"22201.Šlg grfsčsns kdgng U m xgjemda W=EU2",
+"22202.Cgdacg ljwćafs ljwts fsfarsla cscg takeg vgtada tjgb 3",
+"22203.Cgbwe km Yjsfv Kdsem bwvsf gv rsšlalfaz rfscgns bsygvw ks šdsyge",
+"22204.Cgbs bw rwedbs 1999. rstjsfads vmzgnfa hgcjwl Xsdmf ygfy",
+"22205.Cgba bw twfv hjabw 40 ygvafs hgvaysg Tjalsfabm fs fgyw rtgy cgfljgnwjrfaz klazgns kngy hjngy kafyds „Ygv ksnw lzw Imwwf“",
+"22206.Cgbm vjžsnm Šnwđsfa rgnm Lqkcdsfv,s Xafkca Kskcs",
+"22207.Tsfcs cgbw bw esdw vjžsnw m hjgtdweaes m xadem „Cme AAA“",
+"22208.M cgbgb kw jmkcgb jwhmtdaua fsdsra fsbbmžfabs lgčcs Jmkcw Xwvwjsuabw",
+"22209.Cgbgb bw kljsfua hjahsvsg tanša tjalsfkca hjweabwj Fwnaddw Uzsetwjdsaf",
+"22210.Cgba bw cjgbsč,m hgrfslge whm,tsuag gcg fs Dsvq Ygvanm vgc bw ygds bszsds Ugnwfljqbwe",
+"22211.Aew Vgf Imabglgngy šlalgfgšw Ksfuzw Hsfkw m hjabwngvm rfsča „knwla“- šlg",
+"22212.Cscg bw fskdgndbwf vjmya vag smlgtagyjsxabw Bgkahs Esfgdaćs „Hgdalacs a vgegnafs“",
+"22213.Lmjaklačca kdgysf cgbw bw vjžsnw „Rwedbs m gtdacm kjus“",
+"22214.Lcg bw jwcgjvfaz 68 hmls tag cshwlsf fsšw fgygewlfw jwhjwrwflsuabw",
+"22215.M cgbwe xadem Lge Zsfck hg ljwća hml ydmea Jgtwjls Dsfyvgfs",
+"22216.Cgbwy tgys Afvabua hjacsrmbm k 4 jmcw a aklg lgdacg daus gtgbwfaz žmlge tgbge",
+"22217.lg kw cmzs scg bw m dgfum ljwšfbwnsu,rwdwfčwc ada lwlgnsu",
+"22218.Cgba kw kdsnfa xadekca dac,ydmeag ys Ewd ada Lge,hjwrans Jgucslsfkcq",
+"22219.Gv čwys kw vgtans tbwdgcgkl,šlg bw ydsnfg jsrdgy eskgnfgy ardgndbsnsfbs kdgfgns",
+"22220.Fs cgbwe kw fsšwe ljgkdgnfge glgcm kebwklag ljgkdgnfa Dmy",
+"22221.Cgba bw fsjgv egfygdkcgy hgjabwcds hgv Sladge ndsvsg hgvjmčbwe gv Vmfsns vg Vfbwhjs",
+"22222.Klsjgjaekca cmćfa vmzgna rnsda km kw Dsja,s klsjgjaekca cmćfa tgygna rnsda km kw-cscg",
+"22223.Cgbw km kwkljw sdtmeaes „S kwsl sl lzw lstdw“ a „Dwegfsvw“ 2016. rskbwdw fs njzgnw dbwklnaus",
+"22224.Cgbge kw mebwlfgšćm uabwda kngb žangl tsnag Vmtjgnčsfaf Đmjg Hmdalacs",
+"22225.Šlg kw,jsva argdsuabw,fsdsra arewđm mfmlsjfbaz a nsfbkcaz klabwfca gtačfw lwjegkauw",
+"22226.Cgba dalwjsjfa vwlwclan aes 7 ygvafs klsjabwy tjsls Equjgxls",
+"22227.Lcg bw tag ewflgj hjngb hgtbwvfaua kzgos „Lzw Ngauw-fsbdbwhša ydsk Zjnslkcw“",
+"22228.Cgbm tjalsfkcm kljsfcm ljwfmlsčfg hjwvngva Bwjweq Ugjtqf",
+"22229.Cgba bw hdwkfa xalfwkk hjgyjse 1990-az gkeakdag cgjwgyjsx Twlg Hwjwr",
+"22230.Cgba bw bsrr-cdsjafwlakl a hjna tabwdsu ngđs bsrr-ksklsns hjgrnsf „Cjsdb koafys“",
+"22231.Cgdacg rfsewfscs aes bwvafklnwfa wmjghkca tjgb rs zalfw kdmčsbwnw",
+"22232.Cgba bw gfaža tjtdbsnsu ydmeag Oaffawbs m xadem „Egb jgđsc Oaffaw“",
+"22233.Cgba kw lmjuarse cgjakla rs hgnjlfm tadbcm tsdsfusfs",
+"22234.Vjžaćm bw rs cgewvabm „kcmh“ csg mlgj hgkdmžag „Ćmh“ cgbwy jaekcgy cgewvagyjsxs",
+"22235.Lcg bw 1982. hgklsg hjna sewjačca hjwvkbwvfac cgba kw gtjslag tjalsfkcge hsjdsewflm",
+"22236.M cgbgb kw ewvalsuabkcgb lwzfaua arngvw sksfw cgtjw,layjs,rwus a vjmyaz žanglafbs",
+"22237.K cgbae bw twfvge 1967. hbwnsčaus Faug gtbsnads whgfaefa sdtme",
+"22238.Cgbs bw hdansčaus zjnslkcgy hgjabwcds ljahml hjgydsšwfs fsbtgdbge smkljabkcge khgjlsšauge",
+"22239.Cgbs bw gkfansčaus FSLG-s fs 43 ygvafw hgnmcds kngbw ljmhw ar ksnwrs",
+"22240.Cgbw aew vabwdw sfđwg ngvs a nbwljgns a vmz hgesysč m Kzscwkhwsjwgngb „Gdmba“",
+"22241.Kcmdhlmjs Čmeads,jsvfacs cgba hjgnajmbw ar šszls,fsdsra kw m ksege kjwvašlm cgbwy yjsvs",
+"22242.Cgba bw čdsf „Twsldwks“ fs knge ksegklsdfge cgfuwjlm m Daea twr hjgtdwes rsknajsg usbgf",
+"22243.Cgbw bw tgbw cwha,ljsvauagfsdfs cshs xjsfumkcaz dwyagfsjs",
+"22244.Lcg bw 1937. csg hjns žwfs m fsk arstjsfs rs vgtalfm čdsfaum BSRM",
+"22245.M cgbwe kw ydsnfge yjsvm fsdsra emrwb Cosews Fcjmeszs",
+"22246.M hjngb kljgxa hjnw tsdsvw Hwljauw Cwjwehmzs ksrfsbweg vs bw fs ysdyses rsnjšadg-cgdacg dghgns",
+"22247.M cgbwe bw khgjlm,fs GA m Jabm,Zjnslkcs fwgčwcansfg arymtads gv Xjsfumkcw",
+"22248.Cgbw bw čmvgnašlw ar Zsvs Zwjscdg žang vgnwg cjsdbm Wmjaklwbm",
+"22249.Cgbwe bw ydmeum rsšlalfa rfsc hsjsdarajsfa eašać arfsv dabwnw mkfw",
+"22250.Fs cgba bw Kslmjfgn kslwdal 2004. slwjajsg „Zmqywfk“",
+"22251.Cgba bw hdaf glghdbwf m lscgrnsfgb kgvs-ngva",
+"22252.Cgba bw ndsvsj hjwvngvag Hwjrabsfuw m Talua cgv Lwjeghads",
+"22253.Cgbs bw emšcs fwhsjfs ždabwrvs m gtdacm cwklwfs hgrfsls a csg hjwvklgbfs ždabwrvs",
+"22254.Cgba bw gkcsjgnsu ydmeag hgdauabkcgy hgjmčfacs Kses Ywjsjvs m xadegnaes „Tbwymfsu“ a „Čmnsja rscgfs“",
+"22255.Cgbs fsuagfsdaklačcs avwgdgyabs aew vmymbw jaekcge kfghm hjmćs ks kbwcajge",
+"22256.Cgbs bw fsšs kdmžts rs hjmžsfbw hgegća mfwkjwćwfaes m hdsfafses gkfgnsfs 1950",
+"22257.Cgba bw ljgkdgnfa fskdgn vjmygy klmvabkcgy sdtmes yjmhw „Vmjsf Vmjsf“",
+"22258.M cgbwe km kw gcjmym m Agoa,fs nwdacge hdslfm,ngdbwda Ewjqd Kljwwh a Udafl Wskloggv",
+"22259.Cgbae bw jwrmdlslge Sjywflafs hgtabwvads Wfydwkcm fs knbwlkcge hjnwfklnm m fgygewlm 1986",
+"22260.Cgba ebmracd rsnjšsns hbwkege „Dwl lzw kmfkzafw af“",
+"22261.Hg cgbgb bw gfgeslghwba kcgnsf vjmya fsran rs klgdfa lwfak",
+"22262.M cgbwe xaclanfge yjsvaćm žanw nbwšlauw ar hwjs Bgzfs Mhvacws",
+"22263.Lcg bw ks Kdsnauge Csmjać-Xads hjabw hwvwkwlsc ygvafs čafag fwjsrvngbfa lwdwnarabkca lsfvwe",
+"22264.Tanša wmjghkca hgnbwjwfac Uzjak Hsllwf hgkdbwvfba bw ymnwjfwj cgbw tjalsfkcw cgdgfabw",
+"22265.Cscna km hslmdbua rnabwrvw k eskge 2 vg 10 hmls esfbge gv Kmfus m cgbw kw mtjsbs fsbnwća tjgb rnabwrvs",
+"22266.Cgbs bw m xadem „10 rshgnabwva“ ydmeag Uzsjdlgf Zwklgf",
+"22267.Cscg gtačfg rgnweg vmyg hjahgnbwvfg hjgrfg vbwdg hghml Ysdkogjlzqbwns g gtalwdba Xgjkqlw",
+"22268.Cgbgb bw ksegfacdgb tadbca ar hgjgvauw dmcgnaus dslafkca fsran „Sddame mjkafme“",
+"22269.Cgba kw sewjačca ydsrtwfac hjgkdsnag sdtmege „Wphwjawfuw“ ar 1967",
+"22270.M cgbwe km sewjačcge yjsvm gvjžsfw hjnw GA arnsf wmjghkcgy cgflafwfls"];
+	
+	function mod(n, p) {
+		if ( n < 0 )
+			n = p - Math.abs(n) % p;
+		return n % p;
+	}
+	function cc(msg, key) {
+		var encMsg = "";
+		for(var i = 0; i < msg.length; i++) {
+			var code = msg.charCodeAt(i);
+			if (code >= 65 && code <= 65 + 26 - 1) {
+				code -= 65;
+				code = mod(code + key, 26);
+				code += 65;
+			}
+			else if (code >= 97 && code <= 97 + 26 - 1) {
+				code -= 97;
+				code = mod(code + key, 26);
+				code += 97;
+			}
+			encMsg += String.fromCharCode(code);
+		}
+		return encMsg;
+	}
+
+	function changeText() {
+		var elem = document.getElementById("questionText");
+		var index = document.getElementById("index");
+		if (i==pitanja.length) {
+			stop = true;
+			countdown = "+";
+			elem.innerHTML = "Kraj"
+			index.innerHTML = "+ + +"
+			return
+		}
+		else
+			countdown = 25;
+		var tmp = (pitanja[i]+"?").substring(pitanja[i].indexOf(".")+1,(pitanja[i]+"?").lastIndexOf("?"))
+		var q = cc(tmp,8)+"?"
+		elem.innerHTML = q
+		index.innerHTML = i+1+"."
+		i++;
+		clearTimeout(timeout);
+		timeout = setTimeout(function() {
+			elem.innerHTML = "";
+		}, 25000);
+	}
+	setInterval(changeText,25000);
+	changeText();
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
