@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png?">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Queeze</title>
+  </head>
+  <style>
+    @font-face{
+      font-family: "DiabloLight";
+      src: url("DiabloLight.ttf") format("truetype");
+    }
+    div,h1{
+      font-family: DiabloLight;
+    }
+	h2{
+	  font-family: Arial;
+	}
+
+	.btns {
+	  width: 40px;
+	  height: 40px;
+	}
+
+	.question {
+	  -webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Old versions of Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+									  supported by Chrome, Edge, Opera and Firefox */
+	}
+
+  </style>
+  <body style="background-color:#ffefcf;color:#D49E43">
+	<div class="mt-5 col-12">
+		<h1 class="text-center" style="color:black;" id="index">+ + +</h1>
+	</div>
+	<img src="https://mvinfo.hr/_mvshop/public/data/image/1/5882.jpg" class="img center" style="width:128px;position:fixed;bottom:0px;right:0px;"/>
+
+	<div class="col-12"><h4 style="color:#D49E43;" class="text-center">_______________</h4></div>
+	<div class="mt-4 col-12"><h2 id="questionText" style="color:black;" class="question text-center"></h2></div>
+	<div class="mt-4 col-12"><h2 id="answerText" style="color:black;" class="question text-center"></h2></div>
+	<div class="col-12"><h4 style="color:#D49E43;" class="text-center">_______________</h4></div>
+<div class="row mx-0 px-0 mr-2">
+<div class="col-md-5 col-4"></div>
+<button onclick="dec()" class="btn btn-danger bg-white text-dark btns mr-1 col-md-1 col-2 text-center" style="border-radius: 12px;font-size:40px;"><p style="margin-top:-15px;">-</p></button>
+<button onclick="inc()" class="btn btn-dark bg-white text-dark btns ml-1 col-md-1 col-2 text-center" style="border-radius: 12px;font-size:40px;"><p style="margin-top:-15px;">+</p></button>
+<div class="col-md-5 col-4"></div>
+</div>
+    <script>	
+	var i=0;
+	var pitanja = ["Cgbm grfscm fgka rsygjkcs smlguwkls vg Rsyjwts vg Esudbs?S2",
+"Cgdačafm čwys m rjscm ebwjaeg zavjgewljge?Ndsyw",
+"M cgbwe scuabkcge xadem kebwšlwfge m 2054. gyjsfsc hgdauabw Hjw- Ujaew rsmklsndbs rdgčafw cgba ćw kw vgygvala m tmvmćfgkla?Khwuabsdfa arnbwšlsb",
+"Cgbw unabwćw jsklw m đmdaklsfaes?Jmžw",
+"Cgbw km hjabwngrfg kjwvklng Vmtjgnčsfa hjgrnsda „Žmćg“?Ljsensb",
+"Cgbs jabwcs lwčw akhgv csewfgy Cgkafbkcgy egkls klsjgy 80 ygvafs?Dacs",
+"Cgbs jabwč xjsfumkcgy hgjabwcds grfsčsns tjgb lakcsfaz hjaebwjscs fwcgy arvsfbs?Lajsžs",
+"Ar cgbwy bw dwywfvsjfgy nwklwjfs ar 1959. hbwkes „Eq jaxdw,eq hgfq sfv ew“?Jag Tjsng",
+"Cgbm km fgygewlfm jwhjwrwflsuabm m 1990-aes hjwvngvada Lzgesk Tjgdaf a Esjlaf Vszdaf?Šnwvkcm",
+"G cgbwe ygngjfge hgjwewćsbm m vgcmewflsjum „Eacjgxgf bw nsš“ ygngjw Kdsnwf Tadać a Žwdbcg Jgzslafkca?Emusfbm",
+"Fs cgba km nmdcsf,labwcge Jgtgnkcaz jslgns,hgtbwyda Khsjlsc a 70-sc jgtgns?Nwrmn",
+"Cgba bw sdywtsjkca arjsr ksklsndbwf gv vnsbm čdsfgns hgnwrsfaz rfscge hdmk ada eafmk?Tafge",
+"M cgbgb vjžsna dwža vwdls bmžfgsewjačcw jabwcw Gjafgug?Nwfwumwdw",
+"Cgbs gljgnfs reabs,hgegćm jgžfslaz cgdmlgns,hjgarngva rnmc csvs bw m ghskfgkla?Čwyjlmšs",
+"Cgba hbwnsč kngbw mebwlfačcg aew egžw hjgfsća m fskdgnm jgesfs Zwfjqbs Xawdvafys?Lge Bgfwk",
+"Cgbs bw lsdabsfkcs lnjlcs hjgarnwds Uzajgf,hjwes Ymaffwkkgngb cfbara fsbtjža knbwlkca smlgegtad?Tmyslla",
+"Mr cgba kw cgflafwfl fsdsrw Semfvkwfgng,Jgkkgng a Owvvwddgng egjw? Sflsjclacm",
+"Cscg kw rnsg glsu Kmdwbesfs Nwdačsfklnwfgy cgba bw našwkljmcg hgnwćsg lwjalgjab Glgesfkcgy usjklns?Kwdae A.",
+"Cgba ta yjsv ljwtsg tala vgesćaf GA 2020.?Lgcag",
+"Lcg bw jwvslwdb scg kw m fskdgnaes xadegns khgeafbm Jae,Hsjar,Tsjuwdgfs a Csajg?Oggvq Sddwf",
+"Cgba bw jguc-twfv 1979. arvsg aklgaewfa sdtme cgba hgčafbw klazge „Kmtglge mnwčwj avwš m vakug“?Hjdbsng csrsdašlw",
+"Cgbwy km kmhwjzwjgbs ydmeada Ywgjyw Jwwnwk a Uzjaklghzwj Jwwnw? Kmhwjesfs",
+"Fs cgbwe kw yglgng 200 ce vmyge glgcm fsdsrw Tjggcdqf a Imwwfk,vabwdgna Fwo Qgjcs?Dgfy Akdsfvm",
+"Cscg bw,hg vmtjgnsčcge fsranm rs Uaysfcm,fsrnsfs rtajcs hgcdsvfaz eskcwjsls Eacšw Hwdwyjafgnaćs?Bwđmhcs",
+"Cgdacg hjklabm fs bwvfgb fgra aes vandba ygdmt?4",
+"M cgbwe bw fskwdbm hgcjsb Našfbsfs 2009 ksyjsđwfs fgns rnbwrvsjfaus? Navmdafa",
+"Cgdacg bw ewlsjs vmys fsbcjsćs mljcs k hjwhgfses cgbm sldwlačsjcw ljčw fs GA?100 e",
+"Cgbm ljsvauabkcm gvbwćm m Afvgfwraba čafa vmža cgesv lcsfafw cgba kw gnabs gcg labwds?Ksjgfy",
+"Cgbs bw jgđwfs Hmdbsfcs fsbnwćm mdgym gklnsjads m „Ljwćwe čgnbwcm“ Usjgds Jwwvs?Sdavs Nsdda",
+"Cgbwy km jaekcgy ngbkcgngđm cgv Ywjygnabw hgjsrada Nwjuafywlgjackgna Ysda?Uwrsjs",
+"M mfmlsjfbwe vabwdm cgbwy kw gjysfs fsdsrw glgdala,cjaklsdaća rs gkbwl jsnfglwžw?Mzs",
+"Fs čwdm cgbw bw vjžsnw Sdwcksfvsj Dmcsšwfcg nwć hmfw 22 ygvafw? Tbwdgjmkabw",
+"Ar cgbw km hbwkew „Zsmklgjs“ klazgna „Fw ava twr cshmls,hgydwvsb knw bw tabwdg,raes bw“?Wfs",
+"Fs cgbwe kw glgcm fw egžwlw cmhsla m fsbnwćwe fskwdbm,sda egžwlw m Rscdghslaua,Hsksvmjm a Mtdaes?Dsklgnm",
+"Lcg bw gvshwg kljabwdm cgbs bw Hsjaks klsbsds žangls?Xadgclwl",
+"M cgbwe bw klgdbwćm bshsfkca usj Ewaba cgfsčfg kjmšag ndskl Šgymfs a hjwmrwg mhjsndbsfbw vjžsnge?19.kl.",
+"Cgba bw ydmesu mlbwdgnag vgtjgy Oadds Zmflafys?Esll Vsegf",
+"Klsja vag cgbwy kw yjsvs rgnw Yseds klsf?Klguczgdes",
+"M fsk km sjsfuafa mšwćwjwfw cgjauw fsjsfčw,s Lsdabsfaes hjžwfw cmydauw gv-cgbw žalsjauw?Jažw",
+"Cgba bw Fshgdwgfgn ywfwjsd bwvsf gv mlwewdbalwdbs kaflwlačcw ywgewljabw? Dsrsjw Usjfgl",
+"M cgbgb bw vakuahdafa Dmna Esfqgfya gdaehabkcg rdslg arescdg rs 1 ue? Kcgc m vsdb",
+"Cgba xadekca dac arygnsjs:“Ydwvsg kse hmžs cscg hmžw hg jmtm tjalnw“? Osdlwj Cmjlr",
+"Cgba bw yjsv m Lwckskm hdgnfae csfsdge hgnwrsf k Ewckačcae rsdbwnge? Zgmklgf",
+"M cgbm tadbfm hgjgvaum mtjsbseg cmhafw?Jmžw",
+"Cgbw bw tadg fsbčwšćw aew mysjkcaz cjsdbwns ar vafsklabw Sjhsvgnaćs? Klbwhsf",
+"M cgbgb kw vjžsna fsdsra lgčcs cgbs bw fsbmvsdbwfabs gv egjs,cscg ygv vs kw gcjwfw?Cafa",
+"Cgbm bw njklm mrnašwfw dajkcw hbwkew Kzwddwq hgknwlag rshsvfge nbwljm,s Kuzaddwj jsvgkla?Gvm",
+"Mlwewdbalwdbs cgbw jwdayabw hjacsrmbm lja fsbnwćw kcmdhlmjw fs knabwlm? Tmvares",
+"Cgbw hjwraew grfsčsns kdgng Y m scjgfaem hgdacdafacw „KMNSY“? Ymtwjafs",
+"Cscg kw fsrans ydsnfa ndsvsj m Cslsjm,egfsjz k shkgdmlfge ndsšćm?Weaj",
+"Cgba bw hbwnsč 2016. hjgkdsnag 30 ygvafs csjabwjw cgfuwjlge fsrnsfae hjwes hjnge sdtmem „Đsngds“?Fwfg Twdsf",
+"Cgbae bw usjklnge m 12.kl. ndsvsg Wesfmwd A.Cgefwf?Tarsflge",
+"Whargvw cgbw kwjabw hgčafbm jwčwfauge „Knweaj,hgkdbwvfbs yjsfaus“'Rnbwrvsfw klsrw",
+"Cgba bw cgflafwfl vgegnafs fsjgvs Vafcs a Esfvafcs?Sxjacs",
+"“Znsdgkhbwn dbmtsna“ bw fshaksf m hjngb hgkdsfaua Knwlgy Hsnds-cgew? Cgjafćsfaes",
+"M cgbwe bw yjsvm,mr ujcnm Hgflw Jgkkg,kcmdhlmjs Bsewks Bgquws?Ljklm",
+"Cgba bw bwvafa yjsv k hgvjmčbs tanšw Bmygkdsnabw tag vgesćaf GA?Ksjsbwng",
+"Cgbs dslafkcs jabwč rs cgjsc grfsčsns mdgesc ada gvdgesc lwckls?Hskmk",
+"Cjvs cgbaz hsjfghjklsšs srabkca fsjgv Oscza hjwlwžfg mrysbs fs ljsnfslae mrnakafses?Bscgns",
+"Cgbs bw jabwcs hdgnfs gv Lgcsbs vg mšćs m Vmfsn m vmdbafa gv 532 ce? Laks",
+"Cgdacg kw slges cakacs fsdsra m ngvacgnm hwjgckavm?Vns",
+"Cgba yjčca cgewvagyjsx hjacsrmbw keabwšfm kljsfm jsls m kngbgb „Darakljsla“?Sjaklgxsf",
+"Cscg kw fsransbm hjajmčfac rs hdgnavtm a hadgl cgba hgkbwvmbw dauwfum rs mkavjsnsfbw jsrfaz hdgnads?Hadbsj",
+"Cgba bw knwkljsfa kcdsvslwdb,arewđm gklsdgy,fshaksg a 19 esđsjkcaz jshkgvabs?Xjsfr Dakrl",
+"Cgbs bw kdmžtwfs vjžsnfs jwdayabs fs Esdvanaes?Akdse",
+"M cgbwe bw jslm hadglkca sk Jwfw Xgfuc arngbwnsg čsc 75 hgtbwvs? 1.knb.jslm",
+"Cgba ydmesu m bwvfge gv kngbaz xadegns našw hmls arygnsjs „Vgtjg bmljg Nabwlfsew“?Jgtaf Oaddasek",
+"Cgbs bw 1234 e nakgcs hdsfafs m Cgfsndaes,fs cjsbfbwe bmym Zjnslkcw? Kfabwžfaus",
+"Zwhslalak bw,m ewvauafa,scmlfs ada cjgfačfs mhsds cgbwy gjysfs?Bwljw",
+"Cgba bw nwdaca wmjghkca hgdmglgc aew vgtag hg ealgdgšcge Lsflsdgnge kafm?Hwdghgfwr",
+"Gšlwćwfbw cgbwy gjysfs njwts gkgtw cgbw tgdmbm gv setdaghabw?Gča",
+"Cgba bw lmjkca jwhjwrwflslansu hgklaysg fsbtjža hgygvsc m hgnabwkla knbwlkcaz fgygewlfaz hjnwfklsns?Zscsf Kmcmj",
+"Cgba bw yjsv fs jabwua Aksj kjwvafge 12.kl. gkfgnsg kskca a tsnsjkca ngbngvs Zwfjac Dsn?Eüfuzwf",
+"Lcg bw fs Ksf Jwem 1984. fsklmhag k hbwkege „Lwjjs hjgewkks“?Wjgk Jsesrrglla",
+"“Fscaćwfs rwdwfae ygjses,gtsdbsfs čwlajaes jabwcses“ m Jwdbcgnaćwnm klazm egžw tala kseg-cgbs hgcjsbafs?Kdsngfabs",
+"M cgbwe bw sxysfaklsfkcge yjsvm tadg kbwvašlw lsdatsfkcgy hgcjwls 1990- az?Csfvszsjm",
+"Ndsvs cgbw bw vjžsnw 2016. kdmžtwfg kcjslads wfydwkcg aew kngbw rwedbw? Čwšcw",
+"Cgba bw yjsv tag vgesćaf hjnaz raekcaz GA arnsf wmjghkcgy cgflafwfls? Dscw Hdsuav",
+"Cgdacg kw kdgns wfydwkcw stwuwvw fw fsdsra m zjnslkcgb stwuwva?4",
+"Cgba bw jgvfa yjsv kn.Twfwvacls jsrjmšwf m hgljwkm cjsbwe daklghsvs 2016?Fmjkabs",
+"Cscg kw rgnw glsu tjsćw Eggj ar vjsew „Jsrtgbfaua“ Xjawvjauzs Kuzaddwjs? Espaeaddasf",
+"K cgbae bw cdmtge Klgbcg Njsfcgnać gkngbag hjnwfklng Bmygkdsnabw? Rsvjge",
+"Lcg bw fshaksg „Šsdm“,“Fwrfsfbw“,“Twkejlfgkl“ a „Avwflalwl“?Eadsf Cmfvwjs",
+"Cscg kw rgnw cdsmf ar eafa-kwjabw kljsnw a mžsks „Gfg“ ar 1990-az? Hwffqoakw",
+"Cgbs bw cjnfs yjmhs fsbjbwđs m Zjnslkcgb,s aes bw knwys 7% klsfgnfašlns? ST",
+"Cgba bw fsbesfba našwcjslfac tjgbwns 10,20 a 30?60",
+"Cscg hjwngvaeg aew jabwcw Kgfy Zgfy fs cgbgb dwža ydsnfa yjsv Nabwlfses?Ujnwfs jabwcs",
+"M cgbwe bw yjsvm Ewđmrwedbw gkfgnsfs vwnwlwjgčdsfs Hjklwfgns vjmžafs?Janwfvwddm",
+"Cgba bw jguc-twfv aesg fsbnašw mkhbwzs k hbwkege „Esdwfs“ ar 2014? Yjwlls",
+"Šlg taklw hgvayda csg kdmšsdaum csv ta ardgžsc Vsdabwns fsvjwsdaklačcgy lwdwxgfs kdmčsbfg rsrngfag?Bsklgys",
+"Cgbs kw faexs tsuads m egjw,hs hjwvklsndbs hwjkgfaxacsuabm egjkcw hbwfw? Ysdslwbs",
+"Cgba bw bmžfgsewjačca ydsnfa yjsv mjtsfakl Dmuag Ugkls varsbfajsg m gtdacm hlauw ada rjscghdgns?Tjsradabm",
+"Cgbw aew vabwdw njkls tmtfbs a vbwčsc k fsvfsjsnfae khgkgtfgklaes ar „Kegygnsus“?Tgfyg",
+"Cgba bw kaf Wvahs a Bgcsklw hgnwg kwvegjaum hjglan Lwtw fscgf šlg ys bw tjsl Wlwgcdg hglbwjsg ar yjsvs?Hgdafac",
+"M cgbwe bw jgvm ngbkcw jsvfa nabwc hjgnwg zjnslkca čskfac Knwlg Dwlaus? Egjfsjaua",
+"Cgba bw yjsv,takwj Scnalsfabw,m aewfm glghafw egvjw ysdauw k ysšwfae nshfge?Tgjvwsmp",
+"Cgba bw hdsngcgka cwčwj a rstsndbsč jgđwf csg Lwjjq Tgddws?Zmdc Zgysf",
+"Rs cgbwy km vwtalsfls fs fgygewlfge KH-m 2006. ayjsda fshsvsč Udsqlgf Afuw a njslsj Kzscs Zakdgh?Ljafavsv a Lgtsyg",
+"Cgba bw ydsnfa a fsbnwća yjsv sewjačcw ksnwrfw vjžsnw Afvasfw? Afvasfshgdak",
+"Fs šlg,m hgrfslgb xjsra,fwhghmkldbans gkgts lbwjs esc?Cgfsu"];
+	function mod(n, p) {
+		if ( n < 0 )
+			n = p - Math.abs(n) % p;
+		return n % p;
+	}
+	function cc(msg, key) {
+		var encMsg = "";
+		for(var i = 0; i < msg.length; i++) {
+			var code = msg.charCodeAt(i);
+			if (code >= 65 && code <= 65 + 26 - 1) {
+				code -= 65;
+				code = mod(code + key, 26);
+				code += 65;
+			}
+			else if (code >= 97 && code <= 97 + 26 - 1) {
+				code -= 97;
+				code = mod(code + key, 26);
+				code += 97;
+			}
+			encMsg += String.fromCharCode(code);
+		}
+		return encMsg;
+	}
+	
+	function changeText() {
+		var elem = document.getElementById("questionText");
+		var elem2 = document.getElementById("answerText");
+
+		var index = document.getElementById("index");
+		var tmp = pitanja[i].substring(0,pitanja[i].lastIndexOf("?"))
+		var q = cc(tmp,8)+"?"
+		var a = pitanja[i].substring(pitanja[i].lastIndexOf("?")+1,pitanja[i].length)
+		elem.innerHTML = q
+		elem2.innerHTML = cc(a,8)
+		index.innerHTML = i+1+"."
+	}
+	changeText();
+	function dec() {
+		if(i>0){
+			i--;
+			changeText();
+		}
+	}
+	function inc() {
+		if(i<pitanja.length-1){
+			i++;
+			changeText();
+		}
+	}
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
