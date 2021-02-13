@@ -8,6 +8,10 @@
     <title>Queeze</title>
   </head>
   <style>
+    span { 
+      display: inline-block; 
+      position: absolute;
+    }
     @font-face{
       font-family: "DiabloLight";
       src: url("DiabloLight.ttf") format("truetype");
@@ -62,7 +66,11 @@
 	}
 
   </style>
-  <body style="background-color:#ffefcf;color:#D49E43">
+  <body id="container" style="background-color:#ffefcf;color:#D49E43">
+        <span id="random0">RANDOM</span>
+        <span id="random1">RANDOM</span>
+        <span id="random2">RANDOM</span>
+	  
 	<script>
 		alert("Kviz se sastoji od 100 pitanja. Prikaz pitanja vremenski je ograničen na 25 sekundi.\nPrikaz prethodnih pitanja nije moguć.\nOdgovore zapišite gdje god vam je najzgodnije (nije potrebno slati obrazac).\nRevidiranje i izmjene napisanih odgovora dozvoljene su dok god ne istekne vremensko ograničenje posljednjeg pitanja.\nNakon odgovaranja obavijestiti organizatora.\nKada svi timovi završe odgovaranje, rješenja će biti objavljena na istoj stranici (i vi o tome obaviješteni).\nPotrebno je izvršiti samoprovjeru i organizatoru poslati ime tima i broj točno odgovorenih pitanja\nSretno!");
 	</script>
@@ -243,6 +251,22 @@
 	}
 	setInterval(changeText,25000);
 	changeText();
+    </script>
+
+    <script>
+	function moveDiv(id) {
+    		var $span = $(id);
+    		$span.fadeOut(1000, function() {
+			var maxLeft = $(window).width() - $span.width();
+			var maxTop = $(window).height() - $span.height();
+			var leftPos = Math.floor(Math.random() * (maxLeft + 1))
+			var topPos = Math.floor(Math.random() * (maxTop + 1))
+			$span.css({ left: leftPos, top: topPos }).fadeIn(1000);
+		});
+	};
+	for (var i=0;i<3;i++) {
+		setInterval(moveDiv, 5000,"#random"+i);
+	}
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->  
