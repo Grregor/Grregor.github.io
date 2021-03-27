@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon6.png?">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Queeze - Tjedni kviz općeg znanja</title>
+  </head>
+  <style>
+
+.shuttle {
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 100s;
+  --y-speed: 140s;
+  --z-speed: 30s;
+}
+
+.soccer-ball {
+	top:23px;
+	right:23px;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 130s;
+  --y-speed: 110s;
+  --z-speed: 30s;
+}
+
+.popcorn {
+	top:23px;
+	right:23px;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 105s;
+  --y-speed: 130s;
+  --z-speed: 30s;
+}
+
+.fork {
+	top:100%;
+	right:23px;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 25s;
+  --y-speed: 30s;
+  --z-speed: 30s;
+}
+
+.bookshelf {
+	bottom:0;
+	left:-10%;
+	z-index:0;
+	position:absolute;
+  --width: 100px;
+  --height: 23px;
+  --x-speed: 25s;
+  --y-speed: 30s;
+  --z-speed: 30s;
+}
+
+.museum {
+	top:0%;
+	right:23px;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 25s;
+  --y-speed: 30s;
+  --z-speed: 30s;
+}
+
+.music {
+	bottom:30%;
+	left:0px;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 25s;
+  --y-speed: 30s;
+  --z-speed: 30s;
+}
+
+.geography {
+	bottom:0%;
+	left:-100px;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 115s;
+  --y-speed: 90s;
+  --z-speed: 30s;
+}
+
+.culture {
+	bottom:0%;
+	right:10%;
+	z-index:0;
+	position:absolute;
+  --width: 23px;
+  --height: 23px;
+  --x-speed: 105s;
+  --y-speed: 90s;
+  --z-speed: 30s;
+}
+
+.x {
+  animation: x var(--x-speed) linear infinite alternate;
+}
+.x2 {
+  animation: x2 var(--x-speed) linear infinite alternate;
+}
+.y {
+  animation: y var(--y-speed) linear infinite alternate;
+}
+.y2 {
+  animation: y2 var(--y-speed) linear infinite alternate;
+}
+
+.z {
+	animation: z var(--z-speed) linear infinite;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100vw - var(--width)));
+  }
+}
+@keyframes x2 {
+  100% {
+    transform: translateX(calc(-100vw + var(--width)));
+  }
+}
+@keyframes y {
+  100% {
+    transform: translateY(calc(100vh - var(--height)));
+  }
+}
+@keyframes y2 {
+  100% {
+    transform: translateY(calc(-100vh + var(--height)));
+  }
+}
+@keyframes z {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.shake:hover {
+	animation: shake 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  100%,0% { transform: translate(-1px, 1px) rotate(-2deg); }
+  50% { transform: translate(1px, 1px) rotate(2deg); }
+}
+
+.shake2 {
+	animation: shake2 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes shake2 {
+  100%,0% { transform: translate(-1px, 1px) rotate(-3deg); }
+  5% { transform: translate(1px, 1px) rotate(3deg); }
+  10% { transform: translate(-1px, 1px) rotate(-1deg); }
+  15% { transform: translate(1px, 1px) rotate(1deg); }
+  20% { transform: translate(-1px, 1px) rotate(-1deg); }
+  25% { transform: translate(1px, 1px) rotate(1deg); }
+}
+
+
+    @font-face{
+      font-family: "DiabloLight";
+      src: url("DiabloLight.ttf") format("truetype");
+    }
+
+
+    .links{
+     -webkit-text-stroke: 1px black;
+letter-spacing: -2px;
+font: bold 20px Arial, Helvetica, sans-serif;
+margin-left: -6px;
+margin-top:0px;
+margin-bottom:0px;
+color:#ffed77;
+    }
+
+    .title{
+     -webkit-text-stroke: 1px black;
+      text-shadow:
+       6px 6px 0 black,
+     -1px -1px 0 #013383,  
+      1px -1px 0 #013383,
+      -1px 1px 0 #013383,
+       6px 6px 0 #013383;
+letter-spacing: -23px;
+margin-left:-23px;
+    }
+
+    .subtitle{
+     -webkit-text-stroke: 1px white;
+    }
+
+	.btn-start {
+		color: white;
+		background-color: #b30036;
+		border-color: #ffea92
+	}
+	.btn-start:hover {
+		color: white;
+		background-color: #dc6700;
+		border-color: #022866
+	}
+	.btn-rules {
+		color: white;
+		background-color: #4600f1;
+		border-color: #ffea92
+	}
+	.btn-rules:hover {
+		color: white;
+		background-color: grey;
+		border-color: #022866
+	}
+  </style>
+  <body style="background-image: linear-gradient(#013383, #480183);color:white;"><!--color:#D49E43">-->
+
+	<div class="d-none d-md-inline-block shuttle x">
+ 		<div class="y">
+ 			<img  class="z" src="shuttle.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block soccer-ball x2">
+ 		<div class="el y">
+ 			<img  class="z" src="soccer-ball.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block popcorn x2">
+ 		<div class="el y">
+ 			<img  class="z" src="popcorn.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block fork x2">
+ 		<div class="el y2">
+ 			<img  class="z" src="fork.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block bookshelf x">
+ 		<div class="el y2">
+ 			<img  class="z" src="bookshelf.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block museum x2">
+ 		<div class="el y">
+ 			<img  class="z" src="museum.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block music x">
+ 		<div class="el y2">
+ 			<img  class="z" src="music.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block geography x">
+ 		<div class="el y2">
+ 			<img  class="z" src="geography.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+	<div class="d-block d-md-inline-block culture x2">
+ 		<div class="el y2">
+ 			<img  class="z" src="culture.svg" style="opacity: 0.6;width:60px;" />
+ 		</div>
+	</div>
+
+<nav id="navbar-container" class="py-1" style="background-color: rgba(52, 58, 64, .0);position: -webkit-sticky;position: sticky;top: 0;z-index: 1020;">
+	<div class="container d-flex flex-row flex-md-row justify-content-between">
+	    <a class="py-2 px-0 links btn-outline-primary bg-transparent" href="#results-container">Rezultati</a>
+	    <a class="py-2 px-0 links btn-outline-primary bg-transparent" href="#start-container">Pitanja</a>
+        <a class="px-0 mx-0 py-2" href="#">
+        	<img class="d-block" src="favicon6.png" style="margin-top:-6px;height: 34px;">
+        </a>
+	    <a class="px-0 py-2 links btn-outline-primary bg-transparent" href="#report-container">Prijava</a>
+	    <a class="py-2 px-0 links btn-outline-primary bg-transparent" href="#rules-container">Pravila</a>
+    </div>
+</nav>
+
+<div id="banner-container" class="d-none d-md-block position-relative overflow-hidden text-center" style="z-index:3;height:80vh;margin-top:-52px;">
+	<div class="col-md-7 mx-auto" style="padding-top:25vh;margin-bottom:3%;">
+		<div class="mx-auto">
+			<div class="title display-4 font-weight-normal" style="font-family: DiabloLight;background-color:rgba(0,0,0,0.0);color:#ffde02;font-size:6em;">Queeze</div>
+			<p class="subtitle lead font-weight-normal" style="background-color:rgba(0,0,0,0.0);">Tjedni kviz općeg znanja.</p>
+			<a class="shake btn btn-start" href="#start-container">Započni</a>
+			<a class="shake btn btn-rules" href="#rules-container">Pravila</a>
+		</div>
+	</div>
+</div>
+
+<div id="banner-container" class="d-block d-md-none position-relative overflow-hidden text-center" style="z-index:3;height:40vh;">
+	<div class="col-md-7 mx-auto" style="padding-top:10vh;margin-bottom:3%;">
+		<div class="mx-auto">
+			<div class="title display-4 font-weight-normal" style="font-family: DiabloLight;background-color:rgba(0,0,0,0.0);color:#ffde02;font-size:6em;">Queeze</div>
+			<p class="subtitle lead font-weight-normal" style="background-color:rgba(0,0,0,0.0);">Tjedni kviz općeg znanja.</p>
+			<a class="shake btn btn-start" href="#start-container">Započni</a>
+			<a class="shake btn btn-rules" href="#rules-container">Pravila</a>
+		</div>
+	</div>
+</div>
+
+<div id="results-container" class="mt-3 mt-md-0 position-relative overflow-hidden text-center" style="padding-top:5%;">
+	
+	<div class="mx-auto border border-dark col-4 col-sm-3 col-md-3 col-lg-2 bg-success" style="position:relative;margin-bottom:-5px;">21.03.2021.</div>
+	<table class="mt-2 mb-2 mt-sm-2 mb-sm-3 mb-md-4 mb-lg-5 table table-dark col-11 col-sm-11 col-md-10 col-lg-8 mx-auto">
+	  <thead>
+	    <tr style="background-color:#25292d;">
+	      <th class="col-3" scope="col">Mjesto</th>
+	      <th class="col-6" scope="col">Tim</th>
+	      <th class="col-3" scope="col">Bodovi</th>
+	    </tr>
+	  </thead>
+	  <tbody class="">
+	    <tr style="background-image: linear-gradient(to bottom right, #8800ff, #3c00ff 100%);">
+		  <img class="shake2" src="firstplace.svg" style="position:absolute;z-index:1;height:30px;margin-top:68px;margin-left:70px;" />
+	      <th scope="row">1</th>
+	      <td>Minije</td>
+	      <td>43/100</td>
+	    </tr>
+	    <tr style="background-image: linear-gradient(to bottom right, #8800ff, #3c00ff 100%);">
+		  <img class="shake2" src="firstplace.svg" style="position:absolute;z-index:1;height:30px;margin-top:118px;margin-left:70px;" />
+	      <th scope="row">1</th>
+	      <td>Sirius</td>
+	      <td>43/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td>Sengviči</td>
+	      <td>40/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td>Timelords</td>
+	      <td>35/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">4</th>
+	      <td>Ezoterija</td>
+	      <td>34/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">4</th>
+	      <td>Googlesearchers</td>
+	      <td>34/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td>Hakija</td>
+	      <td>32/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td>Kate, prekasno je</td>
+	      <td>32/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">6</th>
+	      <td>Homo Dibidus</td>
+	      <td>29/100</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">7</th>
+	      <td>Unity</td>
+	      <td>27/100</td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>
+
+<div style="background-color:transparent;">
+<div id="start-container" class="pt-5 mt-5 rounded col-11 col-sm-11 col-md-10 col-lg-9 mx-auto row mt-0 position-relative overflow-hidden text-center" style="height:200px;padding-bottom:30vh;">
+	<div class="mx-auto border border-dark mb-1 col-4 col-sm-3 col-md-3 col-lg-2 bg-success" style="position:relative;margin-bottom:-5px;">Novi kviz</div>
+
+	<div class="mx-auto col-12">
+		<p class="subtitle lead font-weight-normal" style="background-color:rgba(0,0,0,0.0);">Pokreni kviz i nakon odgovoranja obavi samoprovjeru.</p>
+	</div>
+	<div class="mx-auto col-12">
+		<a class="mr-0 mr-sm-1 shake col-5 col-sm-4 col-md-3 btn col-lg-2 btn-start" onclick="alertQuestions()">Pitanja</a>
+		<a class="ml-0 ml-sm-1 shake col-5 col-sm-4 col-md-3 col-lg-2 btn btn-rules" onclick="alertAnswers()">Odgovori</a>
+	</div>
+</div>
+</div>
+
+<div id="report-container" class="row px-0 mx-0 position-relative overflow-hidden text-center bg-dark">
+	<div class="col-12 col-sm-12 col-md-6 mt-5 col-lg-5 mb-4 mb-sm-4 mb-md-5 mx-auto">
+		<div class="mb-2 mx-auto border border-dark col-4 col-sm-3 col-md-3 col-lg-3 bg-success" style="position:relative;">Kontakt</div>
+		<p style="text-align: left;">Prijava rezultata mailom nije obavezna, tu je samo kao mogućnost. U svrhu bolje organiziranosti, mail napisati prateći ovdje navedene upute.</p>
+		<p style="text-align: left;">Pošalji rezultat svog tima nakon rješavanja kviza slanjem maila na adresu <span style="color:#ffde02;">queeze@tutanota.com</span> naslova <span style="color:#ffde02;">[Rezultat] - ... </span> te imena tima i u sadržaj napiši broj ostvarenih bodova.</p>
+		<p style="text-align: left;">Pitanja i odgovori na pitanja nekad mogu biti neispravno napisani ili postavljeni pa ovakve greške također prijavi mailom, ali ovaj put naslova <span style="color:#ffde02;">[Greška] - ... </span>> te kratkog opisa greške i u sadržaj napiši puno obrazloženje.</p>
+		<a class="mt-sm-2 shake btn btn-start" href="mailto:queeze@tutanota.com">Pošalji</a>
+
+	</div>
+	<div class="ml-sm-4 mt-0 mt-sm-0 mt-mb-5 mb-5 row col-lg-3 mx-auto pt-md-0 pt-lg-5">
+		<div class="col-md-4 col-lg-12 col-8 col-sm-5 px-0 card mx-auto border border-warning" style="border-width: thin;">
+		  <div class="text-white bg-dark card-header">
+		    @
+		  </div>
+		  <ul class="text-dark list-group list-group-flush border border-dark" style="border-width: thick;">
+		    <li class="list-group-item">queeze@tutanota.com</li>
+		    <li class="list-group-item">[Rezultat] - Ime Tima</li>
+		    <li class="list-group-item">42</li>
+		  </ul>
+		</div>
+
+		<div class="col-md-4 col-lg-12 col-8 col-sm-5 px-0 mt-3 mt-sm-0 mt-lg-3 card mx-auto border border-warning" style="border-width: thin;">
+		  <div class="text-white bg-dark card-header">
+		    @
+		  </div>
+		  <ul class="text-dark list-group list-group-flush border border-dark" style="border-width: thick;">
+		    <li class="list-group-item">queeze@tutanota.com</li>
+		    <li class="list-group-item">[Greška] - 13. pitanje</li>
+		    <li class="list-group-item">Opis greške.</li>
+		  </ul>
+		</div>
+	</div>
+</div>
+
+<div id="rules-container" class="position-relative overflow-hidden text-center" style="">
+	<div class="col-md-7 col-lg-6 mt-5 mb-5 mx-auto">
+	<div class="mx-auto border border-dark col-4 col-sm-3 col-md-3 col-lg-3 bg-success" style="position:relative;margin-bottom:-5px;">Pravila</div>
+	<ul class="mt-3" style="text-align: left;">
+		<li class="mb-sm-2">Queeze je platforma za tjedni online kviz općeg znanja.</li>
+		<li class="mb-sm-2">Kviz se otvara svake nedjelje i moguće ga je riješiti do sljedeće nedjelje bilo kada.</li>
+		<li class="mb-sm-2">Kviz se sastoji od 100 pitanja i svako pitanje ograničeno je vremenski na 25 sekundi.</li>
+		<li class="mb-sm-2">Odgovore na pitanja zapisivati u proizvoljnom obliku (papir, digitalno) i nije ih potrebno predavati.</li>
+		<li class="mb-sm-2">Vraćanje na prethodna pitanja nije dozvoljeno.</li>
+		<li class="mb-sm-2">Tehnička implementacija zahtijeva da se stranica ne osvježava tijekom rješavanja.</li>
+		<li class="mb-sm-2">Izmjene i dopune odgovora dozvoljene su sve dok traje kviz.</li>
+		<li class="mb-sm-2">Provjera točnosti odrađuje se samostalno uz naglasak na učenje i otkrivanje novih informacija.</li>
+		<li class="mb-sm-2">Nakon rješavanja prijaviti rezultat i sve uočene greške.</li>
+	</ul>
+	</div>
+</div>
+
+<div id="footer-container" class="position-relative overflow-hidden text-center">
+	<div class="col-md-5 mt-5 mb-5 mx-auto">
+		<p class="lead font-weight-normal" style="font-size:0.8em;background-color:rgba(0,0,0,0.0);">2021 Queeze</p>
+	</div>
+</div>
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Essential Scripts -->
+    <script>
+		var banner = $('#banner-container');
+		var bannerHeight = banner.outerHeight();
+		var nav = $('#navbar-container');
+		var navHeight = nav.outerHeight();
+		if (window.innerWidth <= 768)
+			nav.css('background-color', 'rgba(1, 30, 76,'+1.0+')');
+		else
+			if (window.scrollY>=200)
+				nav.css('background-color', 'rgba(1, 30, 76,'+1.0+')');
+		window.onresize = function() {
+			if (window.innerWidth <= 768)
+			    nav.css('background-color', 'rgba(1, 30, 76,'+1.0+')');
+			else
+				if (window.scrollY>=200)
+					nav.css('background-color', 'rgba(1, 30, 76,'+1.0+')');
+				else
+				    nav.css('background-color', 'rgba(1, 30, 76,'+0.0+')');
+
+		}
+		$(document).scroll(function(e){
+			if (window.innerWidth <= 768) return;
+			banner = $('#banner-container');
+			bannerHeight = banner.outerHeight();
+			var y = bannerHeight-navHeight;
+			var x = window.scrollY;
+			if(x<=y)
+				newAlpha = 3*x/y;
+			else
+				newAlpha = 1;
+		    nav.css('background-color', 'rgba(1, 30, 76,'+newAlpha+')');
+		});
+    </script>
+    <script>
+    	var alertOpened = 0;
+    	function alertQuestions() {
+    		if (alertOpened==1) {
+    			return;
+    		}
+    		alertOpened=1
+    		document.body.style.overflow = "hidden";
+    		document.body.innerHTML+="<div id='overlay' style='z-index:1020;width:100%;height:100%;position:fixed;background-color: rgba(0,0,0,0.5);top:0%;left:0%;'></div><div id='alert' style='z-index:1021;position:fixed;top:0;margin-left:50%;left:-200px;width:400px;top:20%;' class='border border-warning bg-dark text-center'><div class='row px-4 mx-auto' style='width:400px;height:85%'><div class='row mx-auto' style='margin-top:5%'><ul style='margin-left:-30px;text-align:left;'><li>100 pitanja.</li><li>Svako pitanje 25 sekundi.</li><li>Vraćanje na prethodna pitanja nije dozvoljeno.</li><li>Ne osvježavati stranicu!</li><li>Izmjene odgovora dozvoljene dok traje kviz.</li><li>Obaviti samoprovjeru i prijaviti rezultat.</li><li>Rezultati će biti objavljeni na stranici kviza.</li></ul><div class='col-12 text-center'>Želiš li pokrenuti kviz?</div></div></div><div class='mt-3 mb-3 row px-4 mx-0'><div class='col-5 shake2 btn btn-start mx-auto' onclick='closeAlert(\"pitanja.html\")'>Da</div><div class='col-5 btn btn-rules mx-auto' onclick='closeAlert()'>Ne</div></div></div>"
+		}
+    	function alertAnswers() {
+    		if (alertOpened==1) {
+    			return;
+    		}
+    		alertOpened=1
+    		document.body.style.overflow = "hidden";
+    		document.body.innerHTML+="<div id='overlay' style='z-index:1020;width:100%;height:100%;position:fixed;background-color: rgba(0,0,0,0.5);top:0%;left:0%;'></div><div id='alert' style='z-index:1021;position:fixed;top:0;margin-left:50%;left:-200px;width:400px;top:20%;' class='border border-warning bg-dark text-center'><div class='row px-4 mx-auto' style='width:400px;height:85%'><div class='row mx-auto' style='margin-top:5%'><div class='mb-3 col-12 text-center'>Gotovo? (nemoj ćiribimbit)</div><ul><li>Nakon samoprovjere prijavi rezultat.</li><li>Također prijavi i sve uočene greške.</li></ul><div class='col-12 text-center'>Otvoriti odgovore?</div></div></div><div class='mt-3 mb-3 row px-4 mx-0'><div class='col-5 shake2 btn btn-start mx-auto' onclick='closeAlert(\"odgovori.html\")'>Da</div><div class='col-5 btn btn-rules mx-auto' onclick='closeAlert()'>Ne</div></div></div>"
+		}
+		function closeAlert(s) {
+    		document.body.style.overflow = "auto";
+    		var tmp = document.getElementById("overlay").remove()
+    		var tmp = document.getElementById("alert").remove()
+			alertOpened=0;
+			if (s=="pitanja.html")
+				window.location = "pitanja.html";
+			else if (s=="odgovori.html")
+				window.location = "odgovori.html";
+		}
+    	//onclick="this.parentElement.style.display='none';"
+    </script>
+
+  </body>
+</html>
