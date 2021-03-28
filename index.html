@@ -9,6 +9,17 @@
   </head>
   <style>
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.noscroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.noscroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+	  
 .shuttle {
 	z-index:0;
 	position:absolute;
@@ -239,7 +250,7 @@ margin-left:-23px;
 		border-color: #022866
 	}
   </style>
-  <body style="background-image: linear-gradient(#013383, #480183);color:white;"><!--color:#D49E43">-->
+  <body class="noscroll" style="background-image: linear-gradient(#013383, #480183);color:white;"><!--color:#D49E43">-->
 
 	<div class="d-none d-md-inline-block shuttle x">
  		<div class="y">
