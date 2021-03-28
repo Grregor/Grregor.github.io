@@ -527,6 +527,9 @@ margin-left:-23px;
 		}
 		function closeAlert(s) {
     		document.body.style.overflow = "visible";
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;
+		display: none;
     		var tmp = document.getElementById("overlay").remove()
     		var tmp = document.getElementById("alert").remove()
 			alertOpened=0;
