@@ -250,7 +250,7 @@ margin-left:-23px;
 		border-color: #022866
 	}
   </style>
-  <body class="noscroll" style="background-image: linear-gradient(#013383, #480183);color:white;"><!--color:#D49E43">-->
+  <body class="noscroll" style="overflow-x:hidden;background-image: linear-gradient(#013383, #480183);color:white;"><!--color:#D49E43">-->
 
 	<div class="d-none d-md-inline-block shuttle x">
  		<div class="y">
@@ -525,7 +525,7 @@ margin-left:-23px;
     			return;
     		}
     		alertOpened=1
-    		document.body.style.overflow = "hidden";
+    		document.body.style.overflowY = "hidden";
     		document.body.innerHTML+="<div id='overlay' style='z-index:1020;width:100%;height:100%;position:fixed;background-color: rgba(0,0,0,0.5);top:0%;left:0%;'></div><div id='alert' style='z-index:1021;font-size:0.8em;position:fixed;top:0;margin-left:50%;left:-180px;width:360px;top:20%;' class='border border-warning bg-dark text-center'><div class='row px-4 mx-auto' style='width:360px;height:85%'><div class='row mx-auto' style='margin-top:5%'><ul style='margin-left:-30px;text-align:left;'><li>100 pitanja.</li><li>Svako pitanje 25 sekundi.</li><li>Vraćanje na prethodna pitanja nije dozvoljeno.</li><li>Ne osvježavati stranicu!</li><li>Izmjene odgovora dozvoljene dok traje kviz.</li><li>Obaviti samoprovjeru i prijaviti rezultat.</li><li>Rezultati će biti objavljeni na stranici kviza.</li></ul><div class='col-12 text-center'>Želiš li pokrenuti kviz?</div></div></div><div class='mt-3 mb-3 row px-4 mx-0'><div class='col-5 shake2 btn btn-start mx-auto' onclick='closeAlert(\"pitanja.html\")'>Da</div><div class='col-5 btn btn-rules mx-auto' onclick='closeAlert()'>Ne</div></div></div>"
 		}
     	function alertAnswers() {
@@ -533,11 +533,11 @@ margin-left:-23px;
     			return;
     		}
     		alertOpened=1
-    		document.body.style.overflow = "hidden";
+    		document.body.style.overflowY = "hidden";
     		document.body.innerHTML+="<div id='overlay' style='z-index:1020;width:100%;height:100%;position:fixed;background-color: rgba(0,0,0,0.5);top:0%;left:0%;'></div><div id='alert' style='z-index:1021;font-size:0.8em;position:fixed;top:0;margin-left:50%;left:-180px;width:360px;top:20%;' class='border border-warning bg-dark text-center'><div class='row px-4 mx-auto' style='width:360px;height:85%'><div class='row mx-auto' style='margin-top:5%'><div class='mb-3 col-12 text-center'>Gotovo? (nemoj ćiribimbit)</div><ul><li>Nakon samoprovjere prijavi rezultat.</li><li>Također prijavi i sve uočene greške.</li></ul><div class='col-12 text-center'>Otvoriti odgovore?</div></div></div><div class='mt-3 mb-3 row px-4 mx-0'><div class='col-5 shake2 btn btn-start mx-auto' onclick='closeAlert(\"odgovori.html\")'>Da</div><div class='col-5 btn btn-rules mx-auto' onclick='closeAlert()'>Ne</div></div></div>"
 	}
 	function closeAlert(s) {
-    		document.body.style.overflow = "scroll";
+    		document.body.style.overflowY = "scroll";
     		var tmp = document.getElementById("overlay").remove()
     		var tmp = document.getElementById("alert").remove()
 			alertOpened=0;
